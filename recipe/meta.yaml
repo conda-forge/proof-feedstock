@@ -1,9 +1,8 @@
-{%set name = "proof" %}
-{%set version = "0.3.0" %}
-{%set compress_type = "tar.gz" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "dca8eddbdcad597f7109084143ffb1849d91c57bd0fe44aed8f3fb01f4af34b9" %}
-{%set build_num = "0" %}
+{% set name = "proof" %}
+{% set version = "0.3.0" %}
+{% set compress_type = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_val = "dca8eddbdcad597f7109084143ffb1849d91c57bd0fe44aed8f3fb01f4af34b9" %}
 
 package:
   name: {{ name|lower }}
@@ -11,19 +10,18 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.{{ compress_type }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
   {{ hash_type }}: {{ hash_val }}
 
 build:
   noarch: python
-  number: {{ build_num }}
+  number: 0
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
     - pip
     - python
-    - setuptools
 
   run:
     - python
