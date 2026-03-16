@@ -1,8 +1,7 @@
 {% set name = "proof" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.1" %}
 {% set compress_type = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_val = "dca8eddbdcad597f7109084143ffb1849d91c57bd0fe44aed8f3fb01f4af34b9" %}
+{% set hash_val = "d5d7eff0de32b74543e73e37a88756aa57b3a51711cc31dbe8b1d40f423acbb0" %}
 
 package:
   name: {{ name|lower }}
@@ -10,11 +9,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
-  {{ hash_type }}: {{ hash_val }}
+  sha256: {{ hash_val }}
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
@@ -33,6 +32,7 @@ test:
 about:
   home: http://proof.readthedocs.org/
   license: MIT
+  license_file: COPYING
   license_family: MIT
   # license_file: COPYING - no MANIFEST; see https://github.com/wireservice/proof/pull/18
   summary: 'A Python library for creating optimized, repeatable and self-documenting data analysis pipelines.'
